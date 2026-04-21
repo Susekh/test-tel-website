@@ -465,7 +465,7 @@ function Why() {
             with confidence.
           </p>
 
-          <div className="flex justify-between items-center text-sm font-bold mb-3">
+          <div className="hidden md:flex justify-between items-center text-sm font-bold mb-3">
             <span className="flex items-center gap-2">
               <BookOpen size={18} strokeWidth={2.5} />
               Category:
@@ -473,7 +473,7 @@ function Why() {
             <span>Full-Stack Development</span>
           </div>
 
-          <div className="flex justify-between items-center text-sm font-bold mb-3">
+          <div className="hidden md:flex justify-between items-center text-sm font-bold mb-3">
             <span className="flex items-center gap-2">
               <Brain size={18} strokeWidth={2.5} />
               Skill Focus:
@@ -481,7 +481,7 @@ function Why() {
             <span>Problem Solving & System Design</span>
           </div>
 
-          <div className="flex justify-between items-center text-sm font-bold mb-5">
+          <div className="hidden md:flex justify-between items-center text-sm font-bold mb-5">
             <span className="flex items-center gap-2">
               <Target size={18} strokeWidth={2.5} />
               Outcome:
@@ -525,7 +525,7 @@ function Why() {
             your technical skills.
           </p>
 
-          <div className="flex justify-between items-center text-sm font-bold mb-3">
+          <div className="hidden md:flex justify-between items-center text-sm font-bold mb-3">
             <span className="flex items-center gap-2">
               <Users size={18} strokeWidth={2.5} />
               Support:
@@ -533,7 +533,7 @@ function Why() {
             <span>Dedicated Mentors</span>
           </div>
 
-          <div className="flex justify-between items-center text-sm font-bold mb-3">
+          <div className="hidden md:flex justify-between items-center text-sm font-bold mb-3">
             <span className="flex items-center gap-2">
               <MessageCircle size={18} strokeWidth={2.5} />
               Interaction:
@@ -541,7 +541,7 @@ function Why() {
             <span>Peer Discussions & Reviews</span>
           </div>
 
-          <div className="flex justify-between items-center text-sm font-bold mb-5">
+          <div className="hidden md:flex justify-between items-center text-sm font-bold mb-5">
             <span className="flex items-center gap-2">
               <Rocket size={18} strokeWidth={2.5} />
               Growth:
