@@ -1,105 +1,213 @@
-import { motion, useMotionValue, useScroll, useAnimationFrame } from "motion/react";
-import { useEffect, useRef } from "react";
+import {
+  motion,
+  useMotionValue,
+  useScroll,
+  useAnimationFrame,
+} from "motion/react";
+import {
+  useEffect,
+  useRef,
+  useLayoutEffect,
+  useState,
+} from "react";
 
 interface RibbonItem {
   tag: string;
-  tagBg: string;
-  tagColor: string;
-  itemBg: string;
   text: string;
 }
 
 const items: RibbonItem[] = [
-  { tag: "CURIOSITY", tagBg: "#f5e642", tagColor: "#0a0a0a", itemBg: "#fdfaf0", text: "Every expert was once a beginner who refused to quit." },
-  { tag: "MINDSET",   tagBg: "#3355ff", tagColor: "#ffffff", itemBg: "#dce4ff", text: "The mind that opens to a new idea never returns to its original size." },
-  { tag: "EFFORT",    tagBg: "#ff3322", tagColor: "#ffffff", itemBg: "#ffe4e2", text: "Sweat in the classroom means confidence in the arena." },
-  { tag: "DEPTH",     tagBg: "#1aad5e", tagColor: "#ffffff", itemBg: "#d4f5e3", text: "Go an inch wide and a mile deep — mastery lives in detail." },
-  { tag: "HABIT",     tagBg: "#0a0a0a", tagColor: "#f5e642", itemBg: "#fdfaf0", text: "Read one hour a day. In a decade, you'll be unstoppable." },
-  { tag: "FAILURE",   tagBg: "#ff7a00", tagColor: "#0a0a0a", itemBg: "#ffe8cc", text: "Every wrong answer is a data point pointing toward right." },
-  { tag: "SYSTEMS",   tagBg: "#e91e8c", tagColor: "#ffffff", itemBg: "#f9d8ee", text: "You don't rise to your goals — you fall to your systems." },
-  { tag: "WISDOM",    tagBg: "#3355ff", tagColor: "#ffffff", itemBg: "#dce4ff", text: "Knowledge tells you what; wisdom tells you whether." },
-  { tag: "FOCUS",     tagBg: "#ff3322", tagColor: "#ffffff", itemBg: "#ffe4e2", text: "The sharpest weapon in any field is undivided attention." },
-  { tag: "GROWTH",    tagBg: "#1aad5e", tagColor: "#ffffff", itemBg: "#d4f5e3", text: "Uncomfortable learning is just your brain building new highways." },
-  { tag: "OUTPUT",    tagBg: "#f5e642", tagColor: "#0a0a0a", itemBg: "#fdfaf0", text: "Teach what you learn. It cements the knowledge into bone." },
-  { tag: "EDGE",      tagBg: "#0a0a0a", tagColor: "#f5e642", itemBg: "#fdfaf0", text: "In a world of skimmers, the reader is royalty." },
+  { tag: "Curiosity", text: "Every expert was once a beginner who refused to quit." },
+  { tag: "Mindset", text: "The mind that opens to a new idea never returns to its original size." },
+  { tag: "Effort", text: "Sweat in the classroom means confidence in the arena." },
+  { tag: "Depth", text: "Go an inch wide and a mile deep — mastery lives in detail." },
+  { tag: "Habit", text: "Read one hour a day. In a decade, you'll be unstoppable." },
+  { tag: "Failure", text: "Every wrong answer is a data point pointing toward right." },
+  { tag: "Systems", text: "You don't rise to your goals — you fall to your systems." },
+  { tag: "Wisdom", text: "Knowledge tells you what; wisdom tells you whether." },
+  { tag: "Focus", text: "The sharpest weapon in any field is undivided attention." },
+  { tag: "Growth", text: "Uncomfortable learning is just your brain building new highways." },
+  { tag: "Output", text: "Teach what you learn. It cements the knowledge into bone." },
+  { tag: "Edge", text: "In a world of skimmers, the reader is royalty." },
 ];
 
 function RibbonCard({ item }: { item: RibbonItem }) {
   return (
-    <div
-      className="flex items-center shrink-0 h-[52px] border-r-[3px] border-black"
-      style={{ backgroundColor: item.itemBg }}
-    >
+    <div className="flex items-center shrink-0 h-[56px] px-6 whitespace-nowrap">
+      
+      {/* TAG */}
       <span
-        className="px-4 h-full flex items-center text-[10px] font-extrabold tracking-[0.13em] uppercase border-r-[3px] border-black whitespace-nowrap"
-        style={{
-          backgroundColor: item.tagBg,
-          color: item.tagColor,
-        }}
+        className="
+          text-[15px]
+          font-bold
+          tracking-wide
+          uppercase
+          text-white
+          mr-4
+          opacity-90
+        "
       >
         {item.tag}
       </span>
 
-      <span className="px-5 h-full flex items-center text-[13px] font-bold whitespace-nowrap">
+      {/* TEXT */}
+      <span
+        className="
+          text-[14px]
+          font-medium
+          text-blue-100
+        "
+      >
         {item.text}
       </span>
 
-      <span className="w-[7px] h-[7px] bg-black rounded-full mx-[6px] shrink-0" />
+      {/* DOT */}
+      <span
+        className="
+          w-[6px]
+          h-[6px]
+          bg-blue-300
+          rounded-full
+          mx-6
+          opacity-70
+        "
+      />
     </div>
   );
 }
 
 export default function KnowledgeRibbon() {
   const x = useMotionValue(0);
-  const direction = useRef(1);
 
-  const { scrollY } = useScroll();
+  const direction = useRef(1);
   const lastScroll = useRef(0);
 
-  // Detect scroll direction
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const [contentWidth, setContentWidth] = useState(0);
+
+  const { scrollY } = useScroll();
+
+  /*
+    Detect scroll direction
+  */
   useEffect(() => {
     return scrollY.on("change", (latest) => {
       if (latest > lastScroll.current) {
-        direction.current = 1; // scrolling down
+        direction.current = 1;
       } else if (latest < lastScroll.current) {
-        direction.current = -1; // scrolling up
+        direction.current = -1;
       }
 
       lastScroll.current = latest;
     });
   }, [scrollY]);
 
-  // Continuous movement
-  useAnimationFrame((_, delta) => {
-    const speed = 0.12; // px per ms
-    x.set(x.get() - direction.current * speed * delta);
 
-    // seamless loop
-    if (x.get() < -2000) {
+  useLayoutEffect(() => {
+    const measure = () => {
+      if (contentRef.current) {
+        const width =
+          contentRef.current.scrollWidth / 3;
+
+        setContentWidth(width);
+      }
+    };
+
+    measure();
+
+    window.addEventListener("resize", measure);
+
+    return () =>
+      window.removeEventListener("resize", measure);
+  }, []);
+
+  useAnimationFrame((_, delta) => {
+    if (!contentWidth) return;
+
+    const speed = 0.08;
+
+    x.set(
+      x.get() -
+        direction.current *
+          speed *
+          delta
+    );
+
+    if (x.get() <= -contentWidth) {
       x.set(0);
     }
+
     if (x.get() > 0) {
-      x.set(-2000);
+      x.set(-contentWidth);
     }
   });
 
   return (
-    <div className="relative w-full mt-10 overflow-hidden bg-[#fdfaf0] border-y-[3px] border-black">
-      <div className="relative w-full h-[52px] overflow-hidden">
+    <div
+      ref={containerRef}
+      className="
+        relative
+        w-full
+        mt-10
+        overflow-hidden
 
+        bg-[#4f46e5]
+        backdrop-blur-xl
+      "
+    >
+      {/* LEFT FADE */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-y-0
+          left-0
+          w-24
+          bg-gradient-to-r
+          from-indigo-800
+          to-transparent
+          z-10
+        "
+      />
+
+      {/* RIGHT FADE */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-y-0
+          right-0
+          w-24
+          bg-gradient-to-l
+          from-indigo-800
+          to-transparent
+          z-10
+        "
+      />
+
+      <div className="relative h-[56px] overflow-hidden">
         <motion.div
-          className="absolute left-0 top-0 flex w-max"
+          ref={contentRef}
+          className="
+            absolute
+            left-0
+            top-0
+            flex
+            will-change-transform
+          "
           style={{ x }}
         >
-          {items.map((item, i) => (
-            <RibbonCard key={`a-${i}`} item={item} />
-          ))}
-
-          {items.map((item, i) => (
-            <RibbonCard key={`b-${i}`} item={item} />
-          ))}
+          {[...items, ...items, ...items].map(
+            (item, i) => (
+              <RibbonCard
+                key={i}
+                item={item}
+              />
+            )
+          )}
         </motion.div>
-
       </div>
     </div>
   );

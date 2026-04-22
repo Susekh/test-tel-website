@@ -59,7 +59,7 @@ function Home() {
           </div>
         }
       >
-        <AnnouncementSection />
+        <Video />
       </Suspense>
 
       <Suspense
@@ -69,7 +69,7 @@ function Home() {
           </div>
         }
       >
-        <Video />
+        <AnnouncementSection />
       </Suspense>
 
       <Suspense

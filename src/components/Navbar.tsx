@@ -211,26 +211,26 @@ function Navbar({ courses }: { courses: Course[] }) {
                           href="https://courses.telusko.com/learn/view-all?show=courses&type=1"
                           target="_blank"
                           className="
-        flex-shrink-0
-        py-0.5 lg:py-1 2xl:py-1.5
-        px-2.5 lg:px-3 2xl:px-5
+                          flex-shrink-0
+                          py-0.5 lg:py-1 2xl:py-1.5
+                          px-2.5 lg:px-3 2xl:px-5
 
-        bg-black text-white
-        border-2 border-black
-        rounded-md
+                          bg-black text-white
+                          border-2 border-black
+                          rounded-md
 
-        shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)]
+                          shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)]
 
-        text-[0.58rem] lg:text-[0.63rem] 2xl:text-xs
+                          text-[0.58rem] lg:text-[0.63rem] 2xl:text-xs
 
-        hover:bg-white hover:text-black
-        hover:shadow-none
-        hover:translate-x-[2px]
-        hover:translate-y-[2px]
+                          hover:bg-white hover:text-black
+                          hover:shadow-none
+                          hover:translate-x-[2px]
+                          hover:translate-y-[2px]
 
-        transition-all duration-150
-        whitespace-nowrap
-      "
+                          transition-all duration-150
+                          whitespace-nowrap
+                        "
                         >
                           View All →
                         </a>
