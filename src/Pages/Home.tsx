@@ -1,9 +1,9 @@
 import { useOutletContext } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Loading from "../components/Loading";
+import HeroSection from "@/components/HeroSection";
 
 const KnowledgeRibbon = lazy(() => import("@/components/RibbonCarousel"));
-const HeroSection = lazy(() => import("../components/HeroSection"));
 const Courses = lazy(() => import("../components/Courses"));
 const Why = lazy(() => import("../components/Why"));
 const Quote = lazy(() => import("../components/Quote"));
