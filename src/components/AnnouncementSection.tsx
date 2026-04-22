@@ -167,10 +167,14 @@ export default function DevOpsCourseSection() {
       <div className="relative z-20 flex items-center justify-center w-full px-4 py-12">
         <motion.div
           layout
-          onMouseEnter={() => setIsHovered(true)}
+          onMouseEnter={() => {
+            // Only trigger hover state on devices that support hovering (desktops)
+            if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
+              setIsHovered(true);
+            }
+          }}
           onMouseLeave={() => setIsHovered(false)}
-          onTouchStart={() => setIsHovered(true)}
-          onTouchEnd={() => setIsHovered(false)}
+          // Removed onTouchStart and onTouchEnd completely
           animate={{
             maxWidth: expanded ? 520 : 340,
           }}

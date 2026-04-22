@@ -3,26 +3,18 @@ import { useCallback, useEffect, useRef } from "react";
 
 function Logo() {
   return (
-    <div className="relative flex flex-col font-Playfair items-center text-center mb-16 px-6">
-      {/* Title */}
+    <div className="relative flex flex-col font-DM-Sans items-center text-center mb-16 px-6">
       <motion.h2
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 120 }}
-        className="
-          text-2xl
-          md:text-6xl
-          font-extrabold
-          tracking-tight
-        "
+        className="text-2xl md:text-6xl font-extrabold tracking-tight"
       >
         What Our
         <span className="ml-3 bg-cyan-300 border-2 border-black px-3 shadow-[4px_4px_0_0_#000]">
           Learners Say
         </span>
       </motion.h2>
-
-      {/* Subtitle */}
       <p className="mt-6 max-w-2xl text-lg text-gray-600 font-medium">
         Thousands of developers started their journey here, and built real
         careers from it.
@@ -366,6 +358,8 @@ function ScrollColumn({
   const startFrom = useCallback(
     (yNow: number) => {
       if (!ref.current) return;
+      // Because we duplicate the children inside two stacked divs,
+      // scrollHeight / 2 is exactly the height of one instance!
       const totalHeight = ref.current.scrollHeight / 2;
       const remainingRatio = (totalHeight + yNow) / totalHeight;
       const remainingDuration = duration * remainingRatio;
@@ -391,7 +385,7 @@ function ScrollColumn({
           });
         });
     },
-    [controls, duration],
+    [controls, duration]
   );
 
   useEffect(() => {
@@ -414,19 +408,32 @@ function ScrollColumn({
 
   const handleHoverEnd = () => {
     if (!ref.current) return;
-    const yNow = new DOMMatrix(getComputedStyle(ref.current).transform).m42;
+    const transform = getComputedStyle(ref.current).transform;
+    if (transform === "none") {
+      startFrom(0);
+      return;
+    }
+    const yNow = new DOMMatrix(transform).m42;
     startFrom(yNow);
   };
 
   return (
     <motion.div
       ref={ref}
-      className="flex flex-col gap-6"
+      // Removed the gap here so the outer container matches perfectly
+      className="flex flex-col"
       animate={controls}
       onHoverStart={handleHoverStart}
       onHoverEnd={handleHoverEnd}
+      // Touch events added for mobile pausing
+      onTouchStart={handleHoverStart}
+      onTouchEnd={handleHoverEnd}
+      onTouchCancel={handleHoverEnd}
     >
-      {children}
+      {/* Container 1 */}
+      <div className="flex flex-col gap-6 pb-6">{children}</div>
+      {/* Container 2 (Duplicated mathematically perfect) */}
+      <div className="flex flex-col gap-6 pb-6">{children}</div>
     </motion.div>
   );
 }
@@ -504,9 +511,7 @@ function Testimonial() {
   const validTestimonials = testimonials.filter((t) => t.testimonial !== "");
 
   const col1 = validTestimonials.filter((_, i) => i % 3 === 0);
-
   const col2 = validTestimonials.filter((_, i) => i % 3 === 1);
-
   const col3 = validTestimonials.filter((_, i) => i % 3 === 2);
 
   return (
@@ -529,8 +534,9 @@ function Testimonial() {
         overflow-hidden
       "
         >
+          {/* Note how we no longer duplicate the columns inside the map! ScrollColumn handles the duplication correctly */}
           <ScrollColumn duration={28}>
-            {[...col1, ...col1].map((t, i) => (
+            {col1.map((t, i) => (
               <TestimonialCard
                 key={i}
                 testimonial={t}
@@ -541,7 +547,7 @@ function Testimonial() {
           </ScrollColumn>
 
           <ScrollColumn duration={34}>
-            {[...col2, ...col2].map((t, i) => (
+            {col2.map((t, i) => (
               <TestimonialCard
                 key={i}
                 testimonial={t}
@@ -554,7 +560,7 @@ function Testimonial() {
           </ScrollColumn>
 
           <ScrollColumn duration={30}>
-            {[...col3, ...col3].map((t, i) => (
+            {col3.map((t, i) => (
               <TestimonialCard
                 key={i}
                 testimonial={t}
