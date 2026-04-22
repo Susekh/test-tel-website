@@ -42,7 +42,7 @@ function RibbonCard({ item }: { item: RibbonItem }) {
           font-bold
           tracking-wide
           uppercase
-          text-white
+          text-gray-900
           mr-4
           opacity-90
         "
@@ -55,7 +55,7 @@ function RibbonCard({ item }: { item: RibbonItem }) {
         className="
           text-[14px]
           font-medium
-          text-blue-100
+          text-gray-700
         "
       >
         {item.text}
@@ -66,7 +66,7 @@ function RibbonCard({ item }: { item: RibbonItem }) {
         className="
           w-[6px]
           h-[6px]
-          bg-blue-300
+          bg-blue-900
           rounded-full
           mx-6
           opacity-70
@@ -153,7 +153,7 @@ export default function KnowledgeRibbon() {
         mt-10
         overflow-hidden
 
-        bg-[#4f46e5]
+        bg-[#8fd6e0]
         backdrop-blur-xl
       "
     >
@@ -166,7 +166,7 @@ export default function KnowledgeRibbon() {
           left-0
           w-24
           bg-gradient-to-r
-          from-indigo-800
+          from-sky-300
           to-transparent
           z-10
         "
@@ -181,7 +181,7 @@ export default function KnowledgeRibbon() {
           right-0
           w-24
           bg-gradient-to-l
-          from-indigo-800
+          from-sky-300
           to-transparent
           z-10
         "
