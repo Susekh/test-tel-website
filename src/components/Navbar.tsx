@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import logo from "/logo.png";
 import { LogIn, ChevronRight } from "lucide-react";
@@ -10,19 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-
-const pastelPalette = [
-  "#D7E9D1", // soft mint green
-  "#D3ECF0", // pale aqua blue
-  "#F2EFF9", // light lavender
-  "#FFE5E5", // blush pink
-  "#FFF6D1", // pastel yellow
-  "#E0D7F9", // soft periwinkle
-  "#CFF5E7", // mint aqua
-  "#FADADD", // baby pink
-  "#E8F3D6", // light lime green
-  "#E1F7F5", // icy teal
-];
+import CourseCards from "./NavCourseCard";
 
 type Course = {
   courseId: string;
@@ -101,141 +88,7 @@ function Navbar({ courses }: { courses: Course[] }) {
                       No Courses Available!
                     </div>
                   ) : (
-                    <motion.div className="grid grid-cols-6 gap-1 xl:gap-1.5 2xl:gap-2 3xl:gap-3 font-Montserrat">
-                      {courses.map((course, index) => {
-                        const total = courses.length;
-                        const remainder = total % 3;
-
-                        const isLast = index === total - 1;
-                        const isSecondLast = index === total - 2;
-
-                        let spanClass = "col-span-2"; // default = 1 column visually
-
-                        // 1 item remaining → full row
-                        if (remainder === 1 && isLast) {
-                          spanClass = "col-span-6";
-                        }
-
-                        // 2 items remaining → split row equally (1.5 each)
-                        else if (remainder === 2 && (isLast || isSecondLast)) {
-                          spanClass = "col-span-3";
-                        }
-
-                        return (
-                          <motion.div
-                            key={course.courseId}
-                            style={{
-                              background:
-                                pastelPalette[index % pastelPalette.length],
-                            }}
-                            onClick={() =>
-                              window.open(course.courseUrl, "_blank")
-                            }
-                            className={`
-                    flex flex-col gap-1.5
-                    p-1.5 lg:p-2
-
-                    border-2 border-black
-                    rounded-lg
-
-                    shadow-[1px_1px_0px_0px_#000]
-                    hover:shadow-none
-                    hover:translate-x-[3px]
-                    hover:translate-y-[3px]
-
-                    transition-all duration-150
-                    hover:cursor-pointer
-
-                    min-h-[95px]
-                    xl:min-h-[105px]
-                    2xl:min-h-[120px]
-                    3xl:min-h-[140px]
-
-                    ${spanClass}
-                  `}
-                          >
-                            {/* Larger image window so content is visible */}
-                            <div className="w-full overflow-hidden flex-shrink-0 rounded-md bg-white flex items-center justify-center">
-                              <img
-                                className="w-full h-full object-contain rounded-lg"
-                                src={course.courseImage}
-                                alt={course.courseName}
-                              />
-                            </div>
-
-                            <div className="flex flex-col gap-0.5 flex-1 min-w-0">
-                              <h1 className="font-bold text-[0.6rem] lg:text-[0.68rem] xl:text-xs 2xl:text-sm leading-tight line-clamp-2 hover:line-clamp-none transition-all">
-                                {course.courseName}
-                              </h1>
-
-                              <p className="text-[0.55rem] lg:text-[0.6rem] xl:text-[0.65rem] 2xl:text-[0.68rem] text-[#2C2D2D] line-clamp-2 hover:line-clamp-none leading-snug flex-1">
-                                {course.courseDescription}
-                              </p>
-                            </div>
-                          </motion.div>
-                        );
-                      })}
-
-                      <div
-                        style={{
-                          background:
-                            pastelPalette[
-                              courses.length % pastelPalette.length
-                            ],
-                        }}
-                        className="
-                          col-span-6
-                          flex items-center justify-between gap-2 2xl:gap-4
-
-                          px-2 lg:px-3 2xl:px-4
-                          py-1.5 2xl:py-2.5
-
-                          border-2 border-black
-                          rounded-lg
-
-                          shadow-[2px_2px_0px_0px_#000]
-                          "
-                      >
-                        <div>
-                          <p className="font-semibold text-[0.58rem] lg:text-[0.63rem] xl:text-[0.65rem] 2xl:text-xs text-gray-800">
-                            Want to explore more?
-                          </p>
-
-                          <p className="text-[0.54rem] lg:text-[0.58rem] xl:text-[0.6rem] 2xl:text-[0.65rem] text-gray-500">
-                            Browse our full catalog of courses across all
-                            topics.
-                          </p>
-                        </div>
-
-                        <a
-                          href="https://courses.telusko.com/learn/view-all?show=courses&type=1"
-                          target="_blank"
-                          className="
-                          flex-shrink-0
-                          py-0.5 lg:py-1 2xl:py-1.5
-                          px-2.5 lg:px-3 2xl:px-5
-
-                          bg-black text-white
-                          border-2 border-black
-                          rounded-md
-
-                          shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)]
-
-                          text-[0.58rem] lg:text-[0.63rem] 2xl:text-xs
-
-                          hover:bg-white hover:text-black
-                          hover:shadow-none
-                          hover:translate-x-[2px]
-                          hover:translate-y-[2px]
-
-                          transition-all duration-150
-                          whitespace-nowrap
-                        "
-                        >
-                          View All →
-                        </a>
-                      </div>
-                    </motion.div>
+                   <CourseCards courses={courses} />
                   )}
                 </div>
               </NavigationMenuContent>
@@ -245,69 +98,35 @@ function Navbar({ courses }: { courses: Course[] }) {
       </div>
 
       {/* middle */}
-      <div className="hidden lg:flex gap-3 py-2 mx-auto px-2 bg-yellow-50 w-fit">
+      <div className="hidden lg:flex items-center gap-1.5 mx-auto">
         <a
           href="https://aliencoach.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-800 font-Grostek font-medium text-base px-4 py-1.5 rounded-full
-            bg-white border-2 border-black
-            transition-all duration-200
-            hover:-translate-y-[2px]
-            hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
-            hover:bg-blue-200"
+          className="text-[13px] font-Grostek font-medium text-gray-700 px-4 py-2 rounded-md border border-gray-400 bg-white transition-all duration-150 hover:text-indigo-700 hover:border-indigo-400 hover:bg-indigo-50 hover:shadow-[0_2px_0px_0px_rgba(99,102,241,0.5)] hover:-translate-y-px active:translate-y-0 active:shadow-none"
         >
           AI Alien Coach
         </a>
-
-        {/* <a
-    href="https://blogs.telusko.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-gray-800 font-Grostek font-medium text-base px-4 py-1.5 rounded-full
-    bg-white border-2 border-black
-    transition-all duration-200
-    hover:-translate-y-[2px]
-    hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
-    hover:bg-pink-200"
-  >
-    Blog
-  </a> */}
 
         <a
           href="https://docs.telusko.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-800 font-Grostek font-medium text-base px-4 py-1.5 rounded-full
-            bg-white border-2 border-black
-            transition-all duration-200
-            hover:-translate-y-[2px]
-            hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
-            hover:bg-green-200"
+          className="text-[13px] font-Grostek font-medium text-gray-700 px-4 py-2 rounded-md border border-gray-400 bg-white transition-all duration-150 hover:text-teal-700 hover:border-teal-400 hover:bg-teal-50 hover:shadow-[0_2px_0px_0px_rgba(20,184,166,0.5)] hover:-translate-y-px active:translate-y-0 active:shadow-none"
         >
           Docs
         </a>
 
         <Link
           to="/career"
-          className="text-gray-800 font-Grostek font-medium text-base px-4 py-1.5 rounded-full
-            bg-white border-2 border-black
-            transition-all duration-200
-            hover:-translate-y-[2px]
-            hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
-            hover:bg-purple-200"
+          className="text-[13px] font-Grostek font-medium text-gray-700 px-4 py-2 rounded-md border border-gray-400 bg-white transition-all duration-150 hover:text-violet-700 hover:border-violet-400 hover:bg-violet-50 hover:shadow-[0_2px_0px_0px_rgba(139,92,246,0.5)] hover:-translate-y-px active:translate-y-0 active:shadow-none"
         >
           Career
         </Link>
 
         <Link
           to="/contact-us"
-          className="text-gray-800 font-Grostek font-medium text-base px-4 py-1.5 rounded-full
-            bg-white border-2 border-black
-            transition-all duration-200
-            hover:-translate-y-[2px]
-            hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
-            hover:bg-orange-200"
+          className="text-[13px] font-Grostek font-medium text-gray-700 px-4 py-2 rounded-md border border-gray-400 bg-white transition-all duration-150 hover:text-rose-700 hover:border-rose-400 hover:bg-rose-50 hover:shadow-[0_2px_0px_0px_rgba(244,63,94,0.5)] hover:-translate-y-px active:translate-y-0 active:shadow-none"
         >
           Contact Us
         </Link>
