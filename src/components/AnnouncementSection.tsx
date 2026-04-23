@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Book, ChevronDown, ChevronUp } from "lucide-react";
 import { useState, useEffect } from "react";
+import MarqueeRow from "./MarqueeRow";
 
 interface MarqueeItem {
   label: string;
@@ -8,11 +9,6 @@ interface MarqueeItem {
   color: string;
 }
 
-interface MarqueeRowProps {
-  items: MarqueeItem[];
-  duration: number;
-  reverse?: boolean;
-}
 
 const ROW_A: MarqueeItem[] = [
   { label: "Linux & System Fundamentals", bg: "#D7E9D1", color: "#1a4a1a" },
@@ -54,36 +50,6 @@ const ROW_D: MarqueeItem[] = [
   { label: "Industry Projects", bg: "#E1F7F5", color: "#0d3d38" },
 ];
 
-function MarqueeRow({ items, duration, reverse = false }: MarqueeRowProps) {
-  const duplicated = [...items, ...items];
-  return (
-    <div className="w-full overflow-hidden">
-      <motion.div
-        className="flex w-max"
-        style={{ gap: 12 }}
-        animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
-        transition={{ duration, ease: "linear", repeat: Infinity }}
-      >
-        {duplicated.map((item, i) => (
-          <span
-            key={i}
-            className="flex-shrink-0 font-black uppercase tracking-[0.06em] border-2 border-black whitespace-nowrap"
-            style={{
-              fontSize: 13,
-              padding: "10px 18px",
-              backgroundColor: item.bg,
-              color: item.color,
-              boxShadow: "3px 3px 0 #000",
-              borderRadius: 6,
-            }}
-          >
-            {item.label}
-          </span>
-        ))}
-      </motion.div>
-    </div>
-  );
-}
 
 const enrollUrl =
   "https://learn.telusko.com/courses/complete%20devops%20bootcamp%3A%20master%20devops%20in%2012%20weeks";
@@ -197,10 +163,10 @@ export default function DevOpsCourseSection() {
 
       {/* Marquee background */}
       <div className="absolute inset-0 flex flex-col justify-between py-6 pointer-events-none z-0 gap-0 min-w-0">
-        <MarqueeRow items={ROW_A} duration={30} reverse={false} />
-        <MarqueeRow items={ROW_B} duration={24} reverse={true} />
-        <MarqueeRow items={ROW_C} duration={34} reverse={false} />
-        <MarqueeRow items={ROW_D} duration={27} reverse={true} />
+        <MarqueeRow items={ROW_A} reverse={false} />
+        <MarqueeRow items={ROW_B} reverse={true} />
+        <MarqueeRow items={ROW_C} reverse={false} />
+        <MarqueeRow items={ROW_D} reverse={true} />
       </div>
 
       {/* Vignette */}

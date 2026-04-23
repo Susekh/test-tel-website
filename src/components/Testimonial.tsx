@@ -1,5 +1,5 @@
-import { motion, useAnimationControls } from "framer-motion";
-import { useCallback, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import ScrollColumn from "./ScrollColumn";
 
 function Logo() {
   return (
@@ -346,99 +346,6 @@ const testimonialPalettes = [
   },
 ];
 
-function ScrollColumn({
-  children,
-  duration,
-}: {
-  children: React.ReactNode;
-  duration: number;
-}) {
-  const controls = useAnimationControls();
-  const ref = useRef<HTMLDivElement>(null);
-
-  const startFrom = useCallback(
-    (yNow: number) => {
-      if (!ref.current) return;
-      // Because we duplicate the children inside two stacked divs,
-      // scrollHeight / 2 is exactly the height of one instance!
-      const totalHeight = ref.current.scrollHeight / 2;
-      const remainingRatio = (totalHeight + yNow) / totalHeight;
-      const remainingDuration = duration * remainingRatio;
-
-      controls
-        .start({
-          y: [yNow, -totalHeight],
-          transition: {
-            duration: remainingDuration,
-            ease: "linear",
-            repeat: 0,
-          },
-        })
-        .then(() => {
-          controls.start({
-            y: [0, -totalHeight],
-            transition: {
-              duration,
-              ease: "linear",
-              repeat: Infinity,
-              repeatType: "loop",
-            },
-          });
-        });
-    },
-    [controls, duration]
-  );
-
-  useEffect(() => {
-    if (!ref.current) return;
-    const totalHeight = ref.current.scrollHeight / 2;
-    controls.start({
-      y: [0, -totalHeight],
-      transition: {
-        duration,
-        ease: "linear",
-        repeat: Infinity,
-        repeatType: "loop",
-      },
-    });
-  }, [controls, duration]);
-
-  const handleHoverStart = () => {
-    controls.stop();
-  };
-
-  const handleHoverEnd = () => {
-    if (!ref.current) return;
-    const transform = getComputedStyle(ref.current).transform;
-    if (transform === "none") {
-      startFrom(0);
-      return;
-    }
-    const yNow = new DOMMatrix(transform).m42;
-    startFrom(yNow);
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      // Removed the gap here so the outer container matches perfectly
-      className="flex flex-col"
-      animate={controls}
-      onHoverStart={handleHoverStart}
-      onHoverEnd={handleHoverEnd}
-      // Touch events added for mobile pausing
-      onTouchStart={handleHoverStart}
-      onTouchEnd={handleHoverEnd}
-      onTouchCancel={handleHoverEnd}
-    >
-      {/* Container 1 */}
-      <div className="flex flex-col gap-6 pb-6">{children}</div>
-      {/* Container 2 (Duplicated mathematically perfect) */}
-      <div className="flex flex-col gap-6 pb-6">{children}</div>
-    </motion.div>
-  );
-}
-
 function TestimonialCard({ testimonial, palette }: any) {
   return (
     <div
@@ -535,7 +442,6 @@ function Testimonial() {
         overflow-hidden
       "
         >
-          {/* Note how we no longer duplicate the columns inside the map! ScrollColumn handles the duplication correctly */}
           <ScrollColumn duration={28}>
             {col1.map((t, i) => (
               <TestimonialCard

@@ -36,7 +36,6 @@ function CoursesTextLogo() {
           transition-all duration-200
           hover:-translate-y-[2px]
           hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
-          hover:bg-yellow-200
           cursor-pointer
           select-none
           w-fit
@@ -88,7 +87,7 @@ function Navbar({ courses }: { courses: Course[] }) {
                       No Courses Available!
                     </div>
                   ) : (
-                   <CourseCards courses={courses} />
+                    <CourseCards courses={courses} />
                   )}
                 </div>
               </NavigationMenuContent>
@@ -103,7 +102,22 @@ function Navbar({ courses }: { courses: Course[] }) {
           href="https://aliencoach.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[13px] font-Grostek font-medium text-gray-700 px-4 py-2 rounded-md border border-gray-400 bg-white transition-all duration-150 hover:text-indigo-700 hover:border-indigo-400 hover:bg-indigo-50 hover:shadow-[0_2px_0px_0px_rgba(99,102,241,0.5)] hover:-translate-y-px active:translate-y-0 active:shadow-none"
+          className="
+            text-[13px] font-Grostek font-medium
+            px-4 py-2 rounded-md border
+            text-indigo-900
+            border-indigo-500
+            bg-indigo-100
+
+            shadow-[0_3px_0px_0px_rgba(0,0,0,0.35)]
+            transition-all duration-100
+
+            hover:translate-y-[2px]
+            hover:shadow-[0_1px_0px_0px_rgba(99,102,241,0.6)]
+
+            active:translate-y-[3px]
+            active:shadow-none
+          "
         >
           AI Alien Coach
         </a>
@@ -112,21 +126,66 @@ function Navbar({ courses }: { courses: Course[] }) {
           href="https://docs.telusko.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[13px] font-Grostek font-medium text-gray-700 px-4 py-2 rounded-md border border-gray-400 bg-white transition-all duration-150 hover:text-teal-700 hover:border-teal-400 hover:bg-teal-50 hover:shadow-[0_2px_0px_0px_rgba(20,184,166,0.5)] hover:-translate-y-px active:translate-y-0 active:shadow-none"
+          className="
+          text-[13px] font-Grostek font-medium
+          px-4 py-2 rounded-md border
+          text-teal-900
+          border-teal-500
+          bg-teal-100
+
+          shadow-[0_3px_0px_0px_rgba(0,0,0,0.35)]
+          transition-all duration-100
+
+          hover:translate-y-[2px]
+          hover:shadow-[0_1px_0px_0px_rgba(20,184,166,0.6)]
+
+          active:translate-y-[3px]
+          active:shadow-none
+        "
         >
           Docs
         </a>
 
         <Link
           to="/career"
-          className="text-[13px] font-Grostek font-medium text-gray-700 px-4 py-2 rounded-md border border-gray-400 bg-white transition-all duration-150 hover:text-violet-700 hover:border-violet-400 hover:bg-violet-50 hover:shadow-[0_2px_0px_0px_rgba(139,92,246,0.5)] hover:-translate-y-px active:translate-y-0 active:shadow-none"
+          className="
+          text-[13px] font-Grostek font-medium
+          px-4 py-2 rounded-md border
+          text-violet-900
+          border-violet-500
+          bg-violet-100
+
+          shadow-[0_3px_0px_0px_rgba(0,0,0,0.35)]
+          transition-all duration-100
+
+          hover:translate-y-[2px]
+          hover:shadow-[0_1px_0px_0px_rgba(139,92,246,0.6)]
+
+          active:translate-y-[3px]
+          active:shadow-none
+        "
         >
           Career
         </Link>
 
         <Link
           to="/contact-us"
-          className="text-[13px] font-Grostek font-medium text-gray-700 px-4 py-2 rounded-md border border-gray-400 bg-white transition-all duration-150 hover:text-rose-700 hover:border-rose-400 hover:bg-rose-50 hover:shadow-[0_2px_0px_0px_rgba(244,63,94,0.5)] hover:-translate-y-px active:translate-y-0 active:shadow-none"
+          className="
+          text-[13px] font-Grostek font-medium
+          px-4 py-2 rounded-md border
+          text-rose-900
+          border-rose-500
+          bg-rose-100
+
+          shadow-[0_3px_0px_0px_rgba(0,0,0,0.35)]
+          transition-all duration-100
+
+          hover:translate-y-[2px]
+          hover:shadow-[0_1px_0px_0px_rgba(244,63,94,0.6)]
+
+          active:translate-y-[3px]
+          active:shadow-none
+        "
         >
           Contact Us
         </Link>
