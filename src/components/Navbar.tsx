@@ -245,7 +245,7 @@ function Navbar({ courses }: { courses: Course[] }) {
       </div>
 
       {/* middle */}
-      <div className="hidden lg:flex gap-3 py-2 mx-auto px-2 border-2 border-black rounded-full bg-yellow-50 w-fit shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div className="hidden lg:flex gap-3 py-2 mx-auto px-2 bg-yellow-50 w-fit">
         <a
           href="https://aliencoach.com/"
           target="_blank"

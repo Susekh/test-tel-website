@@ -24,7 +24,7 @@ function HeroSection() {
                   transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                   className="font-bold leading-[0.92] mb-4 md:pt-12"
                   style={{
-                    fontFamily: "'Sekuya'",
+                    fontFamily: "'Bebas Neue', sans-serif",
                     fontSize: "clamp(2.8rem, 6vw, 5rem)",
                     color: "#111",
                   }}
@@ -82,7 +82,7 @@ function HeroSection() {
                 delay: 0.14,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="font-semibold mb-3"
+              className="font-semibold mb-4"
               style={{
                 fontFamily: "'Caveat', cursive",
                 fontSize: "clamp(1.1rem, 2vw, 1.4rem)",
