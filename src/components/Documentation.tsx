@@ -62,7 +62,7 @@ const Documentation: FC = () => {
             whileInView={{ x: 0, opacity: 1 }}
             className="max-w-3xl"
           >
-            <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-black leading-none">
+            <h1 style={{ fontFamily: "'Bebas Neue', sans-serif"}} className="text-4xl md:text-5xl font-black uppercase tracking-tight text-black leading-none">
               How Telusko helps you <br />
               <span className="bg-blue-800 text-white border-2 mt-2 inline-block px-4">
                 work smarter

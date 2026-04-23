@@ -3,11 +3,12 @@ import { useCallback, useEffect, useRef } from "react";
 
 function Logo() {
   return (
-    <div className="relative flex flex-col font-DM-Sans items-center text-center mb-16 px-6">
+    <div  className="relative flex flex-col font-DM-Sans items-center text-center mb-16 px-6">
       <motion.h2
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 120 }}
+        style={{ fontFamily: "'Bebas Neue', sans-serif"}}
         className="text-2xl md:text-6xl font-extrabold tracking-tight"
       >
         What Our

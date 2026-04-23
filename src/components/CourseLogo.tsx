@@ -19,6 +19,7 @@ function CourseLogo() {
           relative font-bold font-DM-Sans 
           text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.25rem]
         "
+        style={{ fontFamily: "'Bebas Neue', sans-serif"}}
       >
         Telusko Courses
         <img

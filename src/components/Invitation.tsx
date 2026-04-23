@@ -80,7 +80,7 @@ const Invitation = () => {
       <div className="relative z-10 max-w-3xl mx-auto">
 
         {/* Heading */}
-        <h4 className="text-4xl sm:text-6xl font-black uppercase leading-[0.95] tracking-tight mb-7">
+        <h4 style={{ fontFamily: "'Bebas Neue', sans-serif"}} className="text-4xl sm:text-6xl font-black uppercase leading-[0.95] tracking-tight mb-7">
           <span className="block mb-2">Partner with</span>
           <span className="block font-Caveat">
             <mark

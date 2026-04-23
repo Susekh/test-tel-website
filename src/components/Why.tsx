@@ -434,7 +434,7 @@ function Why() {
           <div className="relative ml-4 sm:ml-8 md:ml-12">
             <CoursesTextLogo /> 
           </div>
-          <h1 className="relative font-bold font-DM-Sans text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.25rem]">
+          <h1 style={{ fontFamily: "'Bebas Neue', sans-serif"}} className="relative  font-bold text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.25rem]">
             Why Telusko
             <img
               className="absolute -top-15 right-0 translate-x-1/4 sm:-top-10 sm:-right-3 md:-top-12 md:-right-4 lg:-top-10 lg:-right-4 h-20 sm:h-16 md:h-20"
