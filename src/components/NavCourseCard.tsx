@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 interface Course {
   courseId: string | number;
@@ -30,10 +31,10 @@ export default function CourseCards({ courses = [] }: CourseCardsProps) {
   const total = courses.length;
 
   return (
-    <div className="flex flex-col gap-5 font-[DM_Sans]">
+    <div className="flex flex-col gap-3 font-[DM_Sans]">
 
       {/* Grid */}
-      <div className="grid grid-cols-6 gap-5">
+      <div className="grid grid-cols-6 gap-3">
         {courses.map((course, index) => {
           const remainder = total % 3;
           const isLast = index === total - 1;
@@ -161,7 +162,7 @@ export default function CourseCards({ courses = [] }: CourseCardsProps) {
             boxShadow: "2px 2px 0px 0px #C8C5BC",
           }}
         >
-          View All →
+          View All <ArrowRight className="inline mx-auto my-auto w-4 h-4" />
         </motion.a>
       </div>
     </div>
