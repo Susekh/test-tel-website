@@ -409,8 +409,6 @@ function Why() {
   return (
     <section ref={sectionRef} className="font-DM-Sans pb-24 relative">
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        {/* <div className="absolute inset-0 bg-amber-50" /> */}
-
         {/* Alien grid */}
         <div
           className="
@@ -450,7 +448,7 @@ function Why() {
       <div className="h-16" />
       <div className="flex flex-col gap-6 px-4 sm:px-8 lg:px-40 pb-28 items-center">
         {/* LEFT CARD */}
-        <div className="w-full max-w-[550px] bg-[#F4F6FF] border-4 md:mr-auto border-black shadow-[10px_10px_0px_black] p-6 font-sans">
+        <div className="w-full max-w-[550px] bg-[#F4F6FF] border-4 md:mr-auto border-black shadow-[10px_10px_0px_black] p-6 font-DM-Sans">
           <div className="inline-block mb-4 px-3 py-1 bg-black text-white border-2 border-black font-extrabold tracking-wide">
             LEARNING PATH
           </div>
@@ -495,6 +493,7 @@ function Why() {
             bg-[#FF6B6B]
             text-black
             font-extrabold
+            uppercase
             py-3
             border-4
             border-black
@@ -510,7 +509,7 @@ function Why() {
         </div>
 
         {/* RIGHT CARD */}
-        <div className="w-full max-w-[550px] bg-[#111111] border-4 md:ml-auto border-black shadow-[10px_10px_0px_black] p-6 font-sans text-white">
+        <div className="w-full max-w-[550px] bg-[#111111] border-4 md:ml-auto border-black shadow-[10px_10px_0px_black] p-6 font-DM-Sans text-white">
           <div className="inline-block mb-4 px-3 py-1 bg-[#7DD000] text-black border-2 border-black font-extrabold tracking-wide">
             COMMUNITY
           </div>
@@ -556,6 +555,7 @@ function Why() {
               text-black
               font-extrabold
               py-3
+              uppercase
               border-4
               border-black
               shadow-[4px_4px_0px_black]

@@ -8,9 +8,9 @@ function Video() {
   const isInView = useInView(ref, { once: true, amount: 0.6 });
 
   return (
-    <div ref={ref} className="w-full px-5 sm:px-10 md:px-24 lg:px-40 pb-12 md:pb-20 relative isolate z-0">
+    <div ref={ref} className="w-full px-5 md:pt-18 sm:px-10 md:px-24 lg:px-40 pb-12 md:pb-20 relative isolate z-0">
       <motion.div
-        className="relative w-full z-0"
+        className="relative max-w-[1200px] mx-auto w-full z-0"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}

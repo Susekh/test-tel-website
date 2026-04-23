@@ -9,15 +9,12 @@ function HeroSection() {
 
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700;800&display=swap');
-      `}</style>
-
+    
       <section
         className="w-full z-40 px-5 sm:px-10 md:px-24 lg:px-40 pt-16 pb-10 relative"
         style={{ fontFamily: "'DM Sans', sans-serif", background: "#fff" }}
       >
-        <div className="flex items-start justify-between gap-4">
+        <div className="max-w-[1200px] mx-auto flex items-start justify-between gap-4">
           <div className="flex-1 min-w-0">
             <div className="flex items-start gap-3 md:block">
               <div className="flex-1 min-w-0">
@@ -25,15 +22,15 @@ function HeroSection() {
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                  className="font-bold leading-[0.92] mb-4"
+                  className="font-bold leading-[0.92] mb-4 md:pt-12"
                   style={{
-                    fontFamily: "'Caveat', cursive",
+                    fontFamily: "'Sekuya'",
                     fontSize: "clamp(2.8rem, 6vw, 5rem)",
                     color: "#111",
                   }}
                 >
                   Welcome back{" "}
-                  <span className="relative inline-block">
+                  <span className="relative text-gray-800 inline-block">
                     ALIENS
                     <svg
                       className="absolute -bottom-1 left-0"
