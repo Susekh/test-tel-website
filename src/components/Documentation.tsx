@@ -231,7 +231,7 @@ const ScrollCard: FC<ScrollCardProps> = ({ doc, index, onActive }) => {
   // Fire onActive whenever the card's midpoint crosses the viewport centre,
   // in EITHER scroll direction. useMotionValueEvent handles cleanup automatically.
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (v >= 0.5) {
+    if (v >= 0.3) {
       onActive(index);
     } else if (index > 0 && v < 0.5 && v > 0) {
       // Scrolling back up: hand off to the previous card
