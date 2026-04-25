@@ -253,7 +253,7 @@ export default function Explore() {
               }}
             >
               <div
-                className="hidden md:block w-full overflow-hidden border border-[#b7e4c7] bg-white lg:w-[clamp(150px,18vw,210px)]"
+                className="hidden lg:block w-full overflow-hidden border border-[#b7e4c7] bg-white lg:w-[clamp(150px,18vw,210px)]"
                 style={{
                   borderRadius: "28px",
                   boxShadow: "0 4px 28px rgba(45,106,79,0.10)",
