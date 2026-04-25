@@ -343,7 +343,7 @@ function Header() {
               className="
                   z-[1000]
                   p-4 bg-white relative rounded-xl
-                  w-[80%] sm:w-[40%]
+                  w-[95%] md:w-[45%]
                   border-2 border-gray-500
                   shadow-2xl shadow-black
               "

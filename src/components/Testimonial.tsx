@@ -3,20 +3,51 @@ import ScrollColumn from "./ScrollColumn";
 
 function Logo() {
   return (
-    <div  className="relative flex flex-col font-DM-Sans items-center text-center mb-16 px-6">
+    <div
+      className="relative flex flex-col items-center text-center mb-16 px-6"
+      style={{ fontFamily: "'DM Sans', sans-serif" }}
+    >
+      <motion.p
+        initial={{ y: 10, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.4 }}
+        className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4"
+      >
+        Testimonial
+      </motion.p>
+
       <motion.h2
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 120 }}
-        style={{ fontFamily: "'Bebas Neue', sans-serif"}}
-        className="text-2xl md:text-6xl font-extrabold tracking-tight"
+        style={{
+          fontFamily: "'Bebas Neue', sans-serif",
+          fontWeight: 400,
+          lineHeight: 0.95,
+          margin: "0 0 0.75rem",
+        }}
       >
-        What Our
-        <span className="ml-3 bg-cyan-300 border-2 border-black px-3 shadow-[4px_4px_0_0_#000]">
+        <span
+          style={{
+            display: "block",
+            fontSize: "clamp(42px, 6vw, 72px)",
+            color: "#111827",
+          }}
+        >
+          What Our
+        </span>
+        <span
+          style={{
+            display: "block",
+            fontSize: "clamp(42px, 6vw, 72px)",
+            color: "#0891B2",
+          }}
+        >
           Learners Say
         </span>
       </motion.h2>
-      <p className="mt-6 max-w-2xl text-lg text-gray-600 font-medium">
+
+      <p className="mt-6 max-w-2xl text-lg text-gray-500 font-medium">
         Thousands of developers started their journey here, and built real
         careers from it.
       </p>
@@ -100,7 +131,7 @@ const testimonials = [
     role: "Project Engineer (Java full stack Engineer)",
     photo: "/profile.svg",
     testimonial:
-      "Telusko help me a a lot in my java full stack carrier I have learned all the basics from here and also help a lot . During my college time my fev language was python but after visiting  naveen sir channel java became my fev language I decided make my carrier in java. The teaching way of naveen sir is very impressive and very attractive",
+      "Telusko help me a lot in my java full stack carrier I have learned all the basics from here and also help a lot. During my college time my fev language was python but after visiting naveen sir channel java became my fev language I decided make my carrier in java. The teaching way of naveen sir is very impressive and very attractive",
   },
   {
     name: "Joshua Charles P",
@@ -150,12 +181,6 @@ const testimonials = [
     photo: "/profile.svg",
     testimonial:
       "Telusko has played a crucial role in providing me with the essential skills needed for transitioning into the tech industry. Specifically, I have acquired extensive knowledge in web development and coding, focusing on Python and the Django framework through this channel. Navin's ability to articulate his ideas and explain various concepts has consistently facilitated my understanding. I am grateful to Navin for serving as an inspiration as well.",
-  },
-  {
-    name: "Shruti",
-    role: "Student",
-    photo: "/profile.svg",
-    testimonial: "",
   },
   {
     name: "Sriram V",
@@ -211,7 +236,7 @@ const testimonials = [
     role: "Technical consulting Engineer",
     photo: "/profile.svg",
     testimonial:
-      "Telusko is the channel which helped me in shaping my career.  In the initial days of my college days i started learning java from the channel and soon with that one video of how API works has changed my whole life. The way naveen sir explains things in a curious way helped me to dig up things in learning a particular technology.No wonder the whole india watches telusko python playlist. I have followed the old playlist of packet tracer from naveen sir and thats where my networking journey has started up. I was exposed to blockchain later in my 3rd year and made myself confident today to make a career over the same line. Telusko has its mark on each step of my career and today life is easy because of a man like naveen sir. Thank you so much for providing valuable content for free till date.",
+      "Telusko is the channel which helped me in shaping my career. In the initial days of my college days i started learning java from the channel and soon with that one video of how API works has changed my whole life. The way naveen sir explains things in a curious way helped me to dig up things in learning a particular technology. No wonder the whole india watches telusko python playlist. I have followed the old playlist of packet tracer from naveen sir and thats where my networking journey has started up. I was exposed to blockchain later in my 3rd year and made myself confident today to make a career over the same line. Telusko has its mark on each step of my career and today life is easy because of a man like naveen sir. Thank you so much for providing valuable content for free till date.",
   },
   {
     name: "Ajay",
@@ -225,120 +250,102 @@ const testimonials = [
     role: "SRE",
     photo: "/profile.svg",
     testimonial:
-      "Iis difficult to mention one course, because when ever I have any queries, telusko is first source where I will look at , thankyou so much for sharing your knowledge and experience",
+      "It is difficult to mention one course, because when ever I have any queries, telusko is first source where I will look at, thankyou so much for sharing your knowledge and experience",
   },
 ];
 
 const testimonialPalettes = [
   {
-    name: "Sunrise Glow",
     cardBg: "#FFFBEB",
     textColor: "#78350F",
     nameColor: "#F97316",
     accentColor: "#FACC15",
   },
   {
-    name: "Electric Blue & Magenta",
     cardBg: "#111827",
     textColor: "#D1D5DB",
     nameColor: "#EC4899",
     accentColor: "#6366F1",
   },
   {
-    name: "Tropical Vibe",
     cardBg: "#ECFEFF",
     textColor: "#155E75",
     nameColor: "#10B981",
     accentColor: "#F472B6",
   },
   {
-    name: "Citrus Punch",
     cardBg: "#FEFCE8",
     textColor: "#854D0E",
     nameColor: "#EAB308",
     accentColor: "#A3E635",
   },
   {
-    name: "Hot & Cold",
     cardBg: "#111827",
     textColor: "#F9FAFB",
     nameColor: "#F43F5E",
     accentColor: "#0EA5E9",
   },
   {
-    name: "Pop Art",
     cardBg: "#FACC15",
     textColor: "#1E40AF",
     nameColor: "#BE185D",
     accentColor: "#FFFFFF",
   },
-
   {
-    name: "Serene Greens",
     cardBg: "#F0FDF4",
     textColor: "#3F6212",
     nameColor: "#22C55E",
     accentColor: "#A3E635",
   },
   {
-    name: "Soft Lavender",
     cardBg: "#F5F3FF",
     textColor: "#5B21B6",
     nameColor: "#7C3AED",
     accentColor: "#A78BFA",
   },
   {
-    name: "Peach & Cream",
     cardBg: "#FFF7ED",
     textColor: "#7C2D12",
     nameColor: "#EA580C",
     accentColor: "#FB923C",
   },
   {
-    name: "Misty Mountains",
     cardBg: "#D6D3D1",
     textColor: "#292524",
     nameColor: "#047857",
     accentColor: "#F9FAFB",
   },
   {
-    name: "Oceanic Deep",
     cardBg: "#0C4A6E",
     textColor: "#E0F2FE",
     nameColor: "#7DD3FC",
     accentColor: "#06B6D4",
   },
-
   {
-    name: "70s Groove",
     cardBg: "#78350F",
     textColor: "#FDE68A",
     nameColor: "#F97316",
     accentColor: "#FCD34D",
   },
   {
-    name: "Vintage Seaside",
     cardBg: "#E0F2FE",
     textColor: "#1E3A8A",
     nameColor: "#BE123C",
     accentColor: "#F9A8D4",
   },
   {
-    name: "Retro Diner",
     cardBg: "#FCE7F3",
     textColor: "#831843",
     nameColor: "#06B6D4",
     accentColor: "#F472B6",
   },
   {
-    name: "Autumn Academia",
     cardBg: "#FEF9C3",
     textColor: "#422006",
     nameColor: "#9A3412",
     accentColor: "#CA8A04",
   },
   {
-    name: "Desert Sunset",
     cardBg: "#FFF7ED",
     textColor: "#7C2D12",
     nameColor: "#9A3412",
@@ -346,70 +353,161 @@ const testimonialPalettes = [
   },
 ];
 
-function TestimonialCard({ testimonial, palette }: any) {
+function getInitials(name: string) {
+  return name
+    .split(" ")
+    .slice(0, 2)
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase();
+}
+
+function TestimonialCard({
+  testimonial,
+  palette,
+}: {
+  testimonial: (typeof testimonials)[0];
+  palette: (typeof testimonialPalettes)[0];
+}) {
+  const isRealPhoto =
+    testimonial.photo &&
+    !testimonial.photo.includes("/profile.svg") &&
+    !testimonial.photo.includes("/testimonial/yt.svg");
+
   return (
     <div
       style={{
         background: palette.cardBg,
+        border: "1px solid rgba(0,0,0,0.10)",
+        borderRadius: "16px",
+        padding: "20px",
+        marginBottom: "12px",
+        fontFamily: "'DM Sans', sans-serif",
+        boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
+        transition: "box-shadow 0.2s ease, transform 0.2s ease",
+        cursor: "default",
       }}
-      className="
-        relative
-        border-2
-        border-black
-        rounded-md
-        shadow-[4px_4px_0_0_#000]
-        p-6
-        mb-2
-        transition-all
-        duration-200
-        hover:-translate-y-1
-      "
+      onMouseEnter={(e) => {
+        const el = e.currentTarget as HTMLDivElement;
+        el.style.boxShadow = "0 8px 24px rgba(0,0,0,0.12)";
+        el.style.transform = "translateY(-2px)";
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget as HTMLDivElement;
+        el.style.boxShadow = "0 1px 4px rgba(0,0,0,0.06)";
+        el.style.transform = "translateY(0)";
+      }}
     >
-      <img
-        src={testimonial.photo}
-        alt={testimonial.name}
-        loading="lazy"
-        className="
-          w-12
-          h-12
-          rounded-full
-          object-cover
-          absolute
-          -top-6
-          left-5
-          border-2
-          border-black
-          bg-white
-        "
-      />
+      {/* Header: avatar + name/role */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+          marginBottom: "14px",
+        }}
+      >
+        {isRealPhoto ? (
+          <img
+            src={testimonial.photo}
+            alt={testimonial.name}
+            loading="lazy"
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: "50%",
+              objectFit: "cover",
+              border: "2px solid rgba(0,0,0,0.08)",
+              flexShrink: 0,
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: "50%",
+              background: palette.accentColor,
+              border: "2px solid rgba(0,0,0,0.10)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "13px",
+              fontWeight: 700,
+              color: "#000",
+              flexShrink: 0,
+              letterSpacing: "0.02em",
+            }}
+          >
+            {getInitials(testimonial.name)}
+          </div>
+        )}
 
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <p
+            style={{
+              margin: 0,
+              fontSize: "14px",
+              fontWeight: 700,
+              color: palette.nameColor,
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {testimonial.name}
+          </p>
+          {testimonial.role && (
+            <p
+              style={{
+                margin: 0,
+                fontSize: "12px",
+                color: palette.textColor,
+                opacity: 0.6,
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {testimonial.role}
+            </p>
+          )}
+        </div>
+      </div>
+
+      {/* Quote */}
       <p
         style={{
+          margin: "0 0 16px",
+          fontSize: "13.5px",
+          lineHeight: 1.7,
           color: palette.textColor,
+          fontStyle: "normal",
         }}
-        className="
-          mt-6
-          text-sm
-          italic
-          leading-relaxed
-        "
       >
         "{testimonial.testimonial}"
       </p>
 
-      <div className="mt-4">
-        <p
+      {/* Footer: stars + date */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          borderTop: `1px solid rgba(0,0,0,0.07)`,
+          paddingTop: "12px",
+        }}
+      >
+        <span
           style={{
-            color: palette.nameColor,
+            fontSize: "11px",
+            color: palette.textColor,
+            opacity: 0.45,
+            fontVariantNumeric: "tabular-nums",
           }}
-          className="font-bold text-sm"
         >
-          {testimonial.name}
-        </p>
-
-        {testimonial.role && (
-          <p className="text-xs text-gray-500">{testimonial.role}</p>
-        )}
+          09/30/2024
+        </span>
       </div>
     </div>
   );
@@ -423,32 +521,20 @@ function Testimonial() {
   const col3 = validTestimonials.filter((_, i) => i % 3 === 2);
 
   return (
-    <section className="relative w-full p-2 overflow-hidden my-24 font-DM-Sans">
+    <section
+      className="relative w-full overflow-hidden my-24"
+      style={{ fontFamily: "'DM Sans', sans-serif" }}
+    >
       <Logo />
 
-      <div className="relative h-[650px] border-4 md:px-8 border-black w-fit mx-auto rounded-3xl overflow-hidden">
-        <div
-          className="
-        relative
-        max-w-7xl
-        mx-auto
-        grid
-        grid-cols-1
-        sm:grid-cols-2
-        lg:grid-cols-3
-        gap-6
-        px-4
-        h-[650px]
-        overflow-hidden
-      "
-        >
+      <div className="relative h-[650px] border-4 border-gray-300 md:px-8 w-fit mx-auto rounded-3xl overflow-hidden">
+        <div className="relative max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 h-[650px] overflow-hidden">
           <ScrollColumn duration={28}>
             {col1.map((t, i) => (
               <TestimonialCard
                 key={i}
                 testimonial={t}
                 palette={testimonialPalettes[i % testimonialPalettes.length]}
-                index={i}
               />
             ))}
           </ScrollColumn>
@@ -461,7 +547,6 @@ function Testimonial() {
                 palette={
                   testimonialPalettes[(i + 3) % testimonialPalettes.length]
                 }
-                index={i}
               />
             ))}
           </ScrollColumn>
@@ -474,7 +559,6 @@ function Testimonial() {
                 palette={
                   testimonialPalettes[(i + 6) % testimonialPalettes.length]
                 }
-                index={i}
               />
             ))}
           </ScrollColumn>

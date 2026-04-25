@@ -1,14 +1,5 @@
-import {
-  motion,
-  useMotionValue,
-  useAnimationFrame,
-} from "motion/react";
-import {
-  useRef,
-  useLayoutEffect,
-  useState,
-  useCallback,
-} from "react";
+import { motion, useMotionValue, useAnimationFrame } from "motion/react";
+import { useRef, useLayoutEffect, useState, useCallback } from "react";
 
 function ScrollColumn({
   children,
@@ -18,73 +9,47 @@ function ScrollColumn({
   duration: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-
   const y = useMotionValue(0);
-
-  const [contentHeight, setContentHeight] =
-    useState(0);
-
+  const [contentHeight, setContentHeight] = useState(0);
   const paused = useRef(false);
 
-  /*
-    Measure exact height of ONE instance
-  */
+  /* Measure the height of one instance (half of the doubled track) */
   useLayoutEffect(() => {
     const measure = () => {
       if (!ref.current) return;
-
-      const height =
-        ref.current.scrollHeight / 2;
-
-      setContentHeight(height);
+      setContentHeight(ref.current.scrollHeight / 2);
     };
 
     measure();
 
-    const resizeObserver =
-      new ResizeObserver(measure);
-
-    if (ref.current)
-      resizeObserver.observe(ref.current);
-
-    return () =>
-      resizeObserver.disconnect();
+    const ro = new ResizeObserver(measure);
+    if (ref.current) ro.observe(ref.current);
+    return () => ro.disconnect();
   }, []);
 
-  /*
-    Continuous circular motion
-    speed derived from duration
-  */
   useAnimationFrame((_, delta) => {
-    if (!contentHeight) return;
-    if (paused.current) return;
-
-    // pixels per ms
-    const speed =
-      contentHeight / (duration * 1000);
-
-    y.set(
-      y.get() - speed * delta
-    );
+    if (!contentHeight || paused.current) return;
 
     /*
-      Perfect circular reset
-    */
-    if (y.get() <= -contentHeight) {
-      y.set(0);
-    }
+     * Clamp delta to 100ms max so a tab-switch or stutter that produces
+     * a huge delta value (300ms, 500ms, etc.) cannot cause a visible jump.
+     * 100ms is safely above 60fps (~16ms) but kills any macro spike.
+     */
+    const safeDelta = Math.min(delta, 100);
+
+    const speed = contentHeight / (duration * 1000);
+    const next = y.get() - speed * safeDelta;
+
+    /*
+     * Wrap BEFORE setting so the motion value never sees a value outside
+     * [0, -contentHeight]. Using modulo keeps it perfectly circular with
+     * no overshoot frame in between.
+     */
+    y.set(next <= -contentHeight ? next + contentHeight : next);
   });
 
-  /*
-    Pause / Resume logic
-  */
-  const handlePause = useCallback(() => {
-    paused.current = true;
-  }, []);
-
-  const handleResume = useCallback(() => {
-    paused.current = false;
-  }, []);
+  const handlePause = useCallback(() => { paused.current = true; }, []);
+  const handleResume = useCallback(() => { paused.current = false; }, []);
 
   return (
     <motion.div
@@ -97,12 +62,12 @@ function ScrollColumn({
       onTouchEnd={handleResume}
       onTouchCancel={handleResume}
     >
-      {/* Instance 1 */}
+      {/* First copy */}
       <div className="flex flex-col gap-6 pb-6">
         {children}
       </div>
 
-      {/* Instance 2 (perfect loop) */}
+      {/* Second copy — seamless loop */}
       <div className="flex flex-col gap-6 pb-6">
         {children}
       </div>
