@@ -99,7 +99,7 @@ function CourseCard({ onClose, origin = "bottom" }: CourseCardProps) {
         }}
       >
         <p className="text-[11.5px] text-gray-500 leading-relaxed mb-3">
-          Go from zero to industry-ready — Docker, Kubernetes, AWS, CI/CD and more.
+          Go from zero to industry-ready - Docker, Kubernetes, AWS, CI/CD and more.
         </p>
 
         {/* feature tags */}

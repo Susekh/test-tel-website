@@ -67,7 +67,7 @@ function ScrollColumn({
         {children}
       </div>
 
-      {/* Second copy — seamless loop */}
+      {/* Second copy - seamless loop */}
       <div className="flex flex-col gap-6 pb-6">
         {children}
       </div>

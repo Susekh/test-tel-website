@@ -15,7 +15,7 @@ const blogs = [
     title: "JBang: scripting in Java",
     topic: "java",
     description:
-      "JBang makes running Java code as simple as running a Python script. With just one installation and a single command, you can write, edit, and run Java programs directly from your terminal — no need to set up full projects or complex build tools...",
+      "JBang makes running Java code as simple as running a Python script. With just one installation and a single command, you can write, edit, and run Java programs directly from your terminal - no need to set up full projects or complex build tools...",
     link: "https://blogs.telusko.com/blog/JBang:%20scripting%20in%20Java",
   },
 ];

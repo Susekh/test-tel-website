@@ -83,7 +83,7 @@ function ScribbleArrow() {
   );
 }
 
-// Details panel — shared content for both layouts
+// Details panel - shared content for both layouts
 function DetailsPanel() {
   return (
     <div className="flex flex-col gap-3">
@@ -189,7 +189,7 @@ export default function DevOpsCourseSection() {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            {/* Main card — fixed width, never shrinks */}
+            {/* Main card - fixed width, never shrinks */}
             <div className="w-[340px] flex-shrink-0 flex flex-col">
               {/* Image */}
               <div className="relative">
@@ -228,14 +228,14 @@ export default function DevOpsCourseSection() {
                 className="px-4 pt-3 pb-4 flex flex-col gap-2 flex-1"
                 style={{ background: "linear-gradient(160deg, #eff4ff 0%, #ffffff 55%)" }}
               >
-                {/* Hover hint — only shown when collapsed */}
+                {/* Hover hint - only shown when collapsed */}
                 {!isHovered && (
                   <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-gray-400 text-center py-1">
                     Hover to explore →
                   </p>
                 )}
 
-                {/* CTAs — always visible */}
+                {/* CTAs - always visible */}
                 <div className="flex flex-col gap-2 mt-auto">
                   <a href={enrollUrl} target="_blank" rel="noopener noreferrer" className="block">
                     <button
@@ -257,7 +257,7 @@ export default function DevOpsCourseSection() {
               </div>
             </div>
 
-            {/* Details panel — slides in horizontally from the right */}
+            {/* Details panel - slides in horizontally from the right */}
             <AnimatePresence initial={false}>
               {isHovered && (
                 <motion.div

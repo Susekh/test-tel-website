@@ -28,7 +28,7 @@ function Corporate() {
 
         <div className="relative z-10 flex flex-col md:flex-row">
 
-          {/* Left — image pane */}
+          {/* Left - image pane */}
           <div
             className="w-full md:w-1/2 min-h-[260px] md:min-h-[420px] bg-cover bg-center"
             style={{
@@ -37,7 +37,7 @@ function Corporate() {
             }}
           />
 
-          {/* Right — content pane */}
+          {/* Right - content pane */}
           <motion.div
             className="w-full md:w-1/2 bg-[#e8e6df] p-10 flex flex-col gap-5 justify-center"
             initial={{ x: 40, opacity: 0 }}

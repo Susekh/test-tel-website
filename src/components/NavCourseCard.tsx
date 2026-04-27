@@ -123,7 +123,7 @@ export default function CourseCards({ courses = [] }: CourseCardsProps) {
         })}
       </div>
 
-      {/* View All — neutral */}
+      {/* View All - neutral */}
       <div
         className="flex items-center justify-between gap-3 px-[18px] py-[14px]"
         style={{

@@ -28,10 +28,10 @@ function MiniBarChart() {
 
 function HeroCards() {
   return (
-    <div className="max-w-[1200px] mx-auto mt-6 mb-4 grid grid-cols-1 sm:grid-cols-3 gap-0 border-2 border-black shadow-[5px_5px_0px_#111]">
+    <div className="max-w-[1200px] mx-auto mt-6 xl:mt-12 mb-4 gap-0 border-2 border-black shadow-[5px_5px_0px_#111]">
 
-      {/* Card 1 — community */}
-      <motion.div
+      {/* Card 1 - community */}
+      {/* <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -54,7 +54,7 @@ function HeroCards() {
             2M+ Developers
           </p>
           <p className="text-xs leading-relaxed text-gray-500 max-w-[200px]">
-            Real skills, real projects, real careers — built here.
+            Real skills, real projects, real careers  built here.
           </p>
         </div>
 
@@ -71,62 +71,13 @@ function HeroCards() {
             ))}
           </div>
           <span className="text-[11px] font-semibold text-gray-400 tracking-wide">
-            5.8k+ active members
+            100k+ 
           </span>
         </div>
-      </motion.div>
+      </motion.div> */}
 
-      {/* Card 2 — metric */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="flex flex-col p-5 border-b-2 sm:border-b-0 sm:border-r-2 border-black"
-        style={{ background: "#f5f5f5", minHeight: 168 }}
-      >
-        <div className="flex items-start justify-between">
-          <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-gray-400">
-            Course Catalog
-          </p>
-          <span className="text-[10px] font-bold border border-black px-1.5 py-0.5 text-gray-700 tracking-wide">
-            180+
-          </span>
-        </div>
-
-        <p
-          className="font-black leading-none mt-2"
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: "clamp(2.2rem, 5vw, 3.2rem)",
-            color: "#111",
-          }}
-        >
-          168
-          <span
-            className="ml-2 text-sm font-semibold text-gray-400"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
-          >
-            completed this week
-          </span>
-        </p>
-
-        {/* progress bar — flat, no border-radius = brutalist */}
-        <div className="w-full h-1.5 mt-3 mb-2" style={{ background: "#d1d5db" }}>
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: "85%" }}
-            transition={{ duration: 1, delay: 0.75, ease: "easeOut" }}
-            className="h-full"
-            style={{ background: "#111" }}
-          />
-        </div>
-        <p className="text-[10px] text-gray-400 font-medium mb-1">85% of monthly goal</p>
-
-        <MiniBarChart />
-      </motion.div>
-
-      {/* Card 3 — top course */}
-      <motion.div
+      {/* Card 3 - top course */}
+      {/* <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -156,12 +107,12 @@ function HeroCards() {
         <div className="flex items-center justify-between mt-4">
           <div>
             <p className="text-[10px] font-bold tracking-widest uppercase" style={{ color: "#6b7280" }}>
-              Enrolled
+              Enrolled Across platforms
             </p>
-            <p className="text-sm font-black text-white">12,400+</p>
+            <p className="text-lg lg:text-xl font-black text-white">250k+</p>
           </div>
           <a
-            href="https://courses.telusko.com/learn"
+            href="hhttps://courses.telusko.com/learn/master-spring-boot-spring-ai-live-course"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 border-2 border-white text-white transition-all duration-150 hover:bg-white hover:text-black"
@@ -169,7 +120,60 @@ function HeroCards() {
             Enroll <ArrowRight size={11} />
           </a>
         </div>
+      </motion.div> */}
+
+      {/* Card 2 - metric */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="flex flex-col p-5 border-b-2 sm:border-b-0 sm:border-r-2 border-black"
+        style={{ background: "#f5f5f5", minHeight: 168 }}
+      >
+        <div className="flex items-start justify-between">
+          <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-gray-400">
+            Uplift your dreams
+          </p>
+          <a href="https://learn.telusko.com/" target="_blank" className="text-[12px] font-bold border hover:bg-green-900 hover:text-white cursor-pointer duration-300 border-black px-2 py-1.5 text-gray-700 tracking-wide">
+            start learning
+          </a>
+        </div>
+
+        <p
+          className="font-black leading-none mt-2"
+          style={{
+            fontFamily: "'Bebas Neue', sans-serif",
+            fontSize: "clamp(2.2rem, 5vw, 3.2rem)",
+            color: "#111",
+          }}
+        >
+          Our New learing platform
+          <span
+            className="ml-2 text-sm font-semibold text-gray-400"
+            style={{ fontFamily: "'DM Sans', sans-serif" }}
+          >
+            to explore your potential
+          </span>
+        </p>
+
+        
+
+        {/* progress bar - flat, no border-radius = brutalist */}
+        <div className="w-full h-1.5 mt-3 mb-2" style={{ background: "#d1d5db" }}>
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "85%" }}
+            transition={{ duration: 1, delay: 0.75, ease: "easeOut" }}
+            className="h-full"
+            style={{ background: "#111" }}
+          />
+        </div>
+        <p className="text-[10px] text-gray-600 font-medium mb-1">Be better than the mid.</p>
+
+        <MiniBarChart />
       </motion.div>
+
+      
 
     </div>
   );
@@ -181,10 +185,10 @@ function HeroSection() {
   return (
     <>
       <section
-        className="w-full z-40 px-5 sm:px-10 md:px-24 lg:px-40 pt-8 pb-4 relative"
+        className="w-full z-40 px-5 sm:px-10 md:px-24 lg:px-40 pt-8 pb-4 xl:h-screen relative"
         style={{ fontFamily: "'DM Sans', sans-serif", background: "#fff" }}
       >
-        <div className="max-w-[1200px] mx-auto flex items-start justify-between gap-4">
+        <div className="max-w-[1200px] mx-auto flex items-start justify-between gap-8">
           <div className="flex-1 min-w-0">
             <div className="flex items-start gap-3 md:block">
               <div className="flex-1 min-w-0">

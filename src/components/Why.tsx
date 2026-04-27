@@ -333,7 +333,7 @@ function CoursesCard({ animate }: { animate: boolean }) {
         {count}+
       </div>
       <p className="text-gray-500 text-sm mt-3 leading-relaxed">
-        Topics ranging from Java to Cloud, DSA to DevOps — all in one place.
+        Topics ranging from Java to Cloud all in one place.
       </p>
     </div>
   );
@@ -449,8 +449,8 @@ function Why() {
       <div className="flex flex-col gap-6 px-4 sm:px-8 lg:px-40 pb-28 items-center">
         {/* LEFT CARD */}
         <div className="w-full max-w-[550px] bg-[#F4F6FF] border-4 md:mr-auto border-black shadow-[10px_10px_0px_black] p-6 font-DM-Sans">
-          <div className="inline-block mb-4 px-3 py-1 bg-black text-white border-2 border-black font-extrabold tracking-wide">
-            LEARNING PATH
+          <div className="inline-block uppercase mb-4 px-3 py-1 bg-black text-white border-2 border-black font-extrabold tracking-wide">
+            Learner's path
           </div>
 
           <h3 className="text-2xl font-extrabold mb-3 leading-tight">
@@ -458,9 +458,7 @@ function Why() {
           </h3>
 
           <p className="text-base font-medium mb-5">
-            Discover structured learning journeys designed to help you master
-            modern technologies, build real-world projects, and grow your career
-            with confidence.
+            Become a highly sought-after developer with our in-depth courses on various technologies and toolsets!
           </p>
 
           <div className="hidden md:flex justify-between items-center text-sm font-bold mb-3">
@@ -468,7 +466,7 @@ function Why() {
               <BookOpen size={18} strokeWidth={2.5} />
               Category:
             </span>
-            <span>Full-Stack Development</span>
+            <span>Education</span>
           </div>
 
           <div className="hidden md:flex justify-between items-center text-sm font-bold mb-3">
@@ -476,7 +474,7 @@ function Why() {
               <Brain size={18} strokeWidth={2.5} />
               Skill Focus:
             </span>
-            <span>Problem Solving & System Design</span>
+            <span>zero to production-ready developer</span>
           </div>
 
           <div className="hidden md:flex justify-between items-center text-sm font-bold mb-5">
@@ -488,11 +486,13 @@ function Why() {
           </div>
 
           <button
+            onClick={() => window.open("https://courses.telusko.com/learn/master-spring-boot-spring-ai-live-course")}
             className="
             w-full
             bg-[#FF6B6B]
             text-black
             font-extrabold
+            cursor-pointer
             uppercase
             py-3
             border-4
@@ -510,12 +510,12 @@ function Why() {
 
         {/* RIGHT CARD */}
         <div className="w-full max-w-[550px] bg-[#111111] border-4 md:ml-auto border-black shadow-[10px_10px_0px_black] p-6 font-DM-Sans text-white">
-          <div className="inline-block mb-4 px-3 py-1 bg-[#7DD000] text-black border-2 border-black font-extrabold tracking-wide">
+          <div className="inline-block uppercase mb-4 px-3 py-1 bg-[#7DD000] text-black border-2 border-black font-extrabold tracking-wide">
             COMMUNITY
           </div>
 
           <h3 className="text-2xl font-extrabold mb-3 leading-tight">
-            Learn Together, Build Faster
+            Learn Together, Build Faster with 2M+ Developers
           </h3>
 
           <p className="text-base font-medium mb-5 text-white/90">
@@ -549,10 +549,12 @@ function Why() {
           </div>
 
           <button
+            onClick={() => window.open("https://discord.com/invite/bAw7prfK")}
             className="
               w-full
               bg-[#7DD000]
               text-black
+              cursor-pointer
               font-extrabold
               py-3
               uppercase

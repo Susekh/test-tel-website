@@ -103,7 +103,7 @@ const testimonials = [
     role: "",
     photo: "/testimonial/yt.svg",
     testimonial:
-      "I've never seen such a detailed explanation for JWT — rather say the whole Spring Security. Just crisp and clear! To be honest, I was avoiding the video because of its length for months. But not gonna lie, every minute of the video is important and super useful.",
+      "I've never seen such a detailed explanation for JWT - rather say the whole Spring Security. Just crisp and clear! To be honest, I was avoiding the video because of its length for months. But not gonna lie, every minute of the video is important and super useful.",
   },
   {
     name: "Deepak Tiwari",

@@ -49,7 +49,7 @@ function Video() {
           </div>
         </div>
 
-        {/* Video — always visible, autoplay triggered on scroll into view */}
+        {/* Video - always visible, autoplay triggered on scroll into view */}
         <div className="w-full aspect-video relative">
           {isInView ? (
             <motion.iframe

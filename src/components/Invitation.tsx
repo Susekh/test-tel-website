@@ -5,7 +5,7 @@ const cards = [
   {
     num: "01",
     title: "College Collaborations for Scale",
-    desc: "Invite our mentors for live coding bootcamps, tech talks, or semester workshops on Java, Python, AI, and Cloud — bridging academia and industry.",
+    desc: "Invite our mentors for live coding bootcamps, tech talks, or semester workshops on Java, Python, AI, and Cloud - bridging academia and industry.",
     bg: "bg-[#4F6BFF]",
     numColor: "text-[#c0c8ff]",
     titleColor: "text-white",
@@ -95,7 +95,7 @@ const Invitation = () => {
         {/* Subtext */}
         <p className="text-[0.95rem] text-[#333] leading-relaxed max-w-md">
           We empower millions of learners to master real-world programming, AI,
-          and software development — welcoming{" "}
+          and software development - welcoming{" "}
           <strong className="text-black">
             colleges, universities, and tech communities
           </strong>{" "}
@@ -105,11 +105,11 @@ const Invitation = () => {
         {/* Eyebrow */}
         <div className="flex items-center gap-3 mt-12 mb-6">
           <p className="text-[0.75rem] font-bold uppercase tracking-widest text-[#111]">
-            We help learners build better skills — together.
+            We help learners build better skills - together.
           </p>
         </div>
 
-        {/* Shadow wrapper — holds both cards + CTA so shadow is unified and doesn't overflow */}
+        {/* Shadow wrapper - holds both cards + CTA so shadow is unified and doesn't overflow */}
         <div style={{ boxShadow: "5px 5px 0 #000" }}>
 
           {/* Cards */}
