@@ -15,11 +15,11 @@ type UfoWaypoint = {
 
 const UFO_ROUTE: UfoWaypoint[] = [
   { progress: 0.0, xPercent: 0 },   // start left
-  { progress: 0.2, xPercent: 500 },  // move right
-  { progress: 0.4, xPercent: 300 },   // left
-  { progress: 0.6, xPercent: 95 },  // right 
-  { progress: 0.8, xPercent: 0 },   // left 
-  { progress: 1.0, xPercent: 130 },  // finish right
+  { progress: 0.2, xPercent: 650 },  // move right
+  { progress: 0.5, xPercent: 300 },   // left
+  { progress: 0.6, xPercent: -300 },  // right 
+  { progress: 0.8, xPercent: -300 },   // left 
+  { progress: 1.0, xPercent: -300 },  // finish right
 ];
 
 // ── UFO SVG 

@@ -5,23 +5,13 @@ import CourseCard from "./CourseCard";
 import CircularBadge from "./circularBadge";
 
 function MiniBarChart() {
-  const bars = [40, 55, 45, 70, 60, 82, 68, 88, 78, 100];
   return (
-    <div className="flex items-end gap-[3px] h-12 mt-auto pt-2">
-      {bars.map((h, i) => (
-        <motion.div
-          key={i}
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: 1 }}
-          transition={{ delay: 0.6 + i * 0.05, duration: 0.35, ease: "easeOut" }}
-          style={{
-            height: `${h}%`,
-            transformOrigin: "bottom",
-            background: i === bars.length - 1 ? "#111" : "#d1d5db",
-            flex: 1,
-          }}
-        />
-      ))}
+    <div className="flex font-bold items-end gap-[3px] bg-gray-200 py-1.5 px-1 h-12 mt-auto pt-2"
+      style={{ fontFamily: "'Bebas Neue', sans-serif" }} 
+    >
+      <p className="text-gray-700 sm:text-md text-center w-full font-Playfair md:text-xl lg:text-2xl xl:text-4xl">
+        "In the age of AI, average isn’t safe-it’s obsolete"
+      </p>
     </div>
   );
 }
@@ -134,8 +124,8 @@ function HeroCards() {
           <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-gray-400">
             Uplift your dreams
           </p>
-          <a href="https://learn.telusko.com/" target="_blank" className="text-[12px] font-bold border hover:bg-green-900 hover:text-white cursor-pointer duration-300 border-black px-2 py-1.5 text-gray-700 tracking-wide">
-            start learning
+          <a href="https://learn.telusko.com/" target="_blank" className="text-[8px] lg:text-[16px] flex items-center justify-center gap-2 font-bold border hover:bg-green-900 hover:text-white cursor-pointer duration-300 border-black px-1.5 md:px-2 py-0.5 md:py-1.5 text-gray-700 tracking-wide">
+            Explore the platform <ArrowRight size={12} />
           </a>
         </div>
 
@@ -168,7 +158,7 @@ function HeroCards() {
             style={{ background: "#111" }}
           />
         </div>
-        <p className="text-[10px] text-gray-600 font-medium mb-1">Be better than the mid.</p>
+        {/* <p className="text-[10px] text-gray-600 font-medium mb-1">Be better than the mid.</p> */}
 
         <MiniBarChart />
       </motion.div>

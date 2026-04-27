@@ -2,11 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import UfoScrollTracker from "./UfoScrollTracker";
 import {
-  BookOpen,
-  Brain,
   MessageCircle,
   Rocket,
-  Target,
   Users,
 } from "lucide-react";
 
@@ -447,8 +444,24 @@ function Why() {
 
       <div className="h-16" />
       <div className="flex flex-col gap-6 px-4 sm:px-8 lg:px-40 pb-28 items-center">
+
+           {/* ── Block : stat cards with staggered reveal ── */}
+      <div ref={statsRef} className="w-full max-w-[940px] overflow-hidden mx-auto px-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <RevealCard delay={0} from="left">
+            <CoursesCard animate={statsVisible} />
+          </RevealCard>
+          <RevealCard delay={0.15} from="bottom">
+            <StudentsCard animate={statsVisible} />
+          </RevealCard>
+          <RevealCard delay={0.3} from="right">
+            <SatisfactionCard animate={statsVisible} />
+          </RevealCard>
+        </div>
+      </div>
+
         {/* LEFT CARD */}
-        <div className="w-full max-w-[550px] bg-[#F4F6FF] border-4 md:mr-auto border-black shadow-[10px_10px_0px_black] p-6 font-DM-Sans">
+        {/* <div className="w-full max-w-[550px] bg-[#F4F6FF] border-4 md:mr-auto border-black shadow-[10px_10px_0px_black] p-6 font-DM-Sans">
           <div className="inline-block uppercase mb-4 px-3 py-1 bg-black text-white border-2 border-black font-extrabold tracking-wide">
             Learner's path
           </div>
@@ -506,10 +519,10 @@ function Why() {
           >
             Start Your Learning Journey
           </button>
-        </div>
+        </div> */}
 
         {/* RIGHT CARD */}
-        <div className="w-full max-w-[550px] bg-[#111111] border-4 md:ml-auto border-black shadow-[10px_10px_0px_black] p-6 font-DM-Sans text-white">
+        <div className="w-full max-w-[940px] bg-[#111111] border-4 border-black shadow-[10px_10px_0px_black] p-6 font-DM-Sans text-white">
           <div className="inline-block uppercase mb-4 px-3 py-1 bg-[#7DD000] text-black border-2 border-black font-extrabold tracking-wide">
             COMMUNITY
           </div>
@@ -572,20 +585,7 @@ function Why() {
         </div>
       </div>
 
-      {/* ── Block : stat cards with staggered reveal ── */}
-      <div ref={statsRef} className="w-full max-w-[940px] overflow-hidden mx-auto px-4 mb-6">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <RevealCard delay={0} from="left">
-            <CoursesCard animate={statsVisible} />
-          </RevealCard>
-          <RevealCard delay={0.15} from="bottom">
-            <StudentsCard animate={statsVisible} />
-          </RevealCard>
-          <RevealCard delay={0.3} from="right">
-            <SatisfactionCard animate={statsVisible} />
-          </RevealCard>
-        </div>
-      </div>
+   
 
       {/* ── Spacer between blocks ── */}
       <div className="h-8" />
