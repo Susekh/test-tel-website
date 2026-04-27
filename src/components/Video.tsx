@@ -5,7 +5,7 @@ function Video() {
   const ref = useRef(null);
 
   // triggers once when 60% of the component enters the viewport
-  const isInView = useInView(ref, { once: true, amount: 0.6 });
+  const isInView = useInView(ref, { once: false, amount: 0.6 });
 
   return (
     <div ref={ref} className="w-full px-5 md:pt-18 sm:px-10 md:px-24 lg:px-40 pb-12 md:pb-20 relative isolate z-0">

@@ -340,7 +340,7 @@ function StudentsCard({ animate }: { animate: boolean }) {
   return (
     <div className="bg-[#FAF8F5] border-2 border-black shadow-[6px_6px_0_#000] p-5 flex flex-col h-full min-h-[280px]">
       <span className="text-xs font-bold tracking-widest uppercase text-gray-500 mb-1">
-        Students
+        Learners
       </span>
       <div className="font-['Playfair_Display',serif] text-[3.5rem] leading-none font-black text-black tracking-tight">
         300k+

@@ -65,7 +65,7 @@ const testimonials = [
   },
   {
     name: "Vamshi Nallavalli",
-    role: "Student",
+    role: "Learners",
     photo: "https://i.ibb.co/BPRd16j/vamshi-krishna-testimonial.jpg",
     testimonial:
       "After completing my final year exams, I took the Java with Spring course. I had some knowledge in Java but wasn't clear on concepts like objects, classes, and collections. After the course, I can clear technical rounds like a piece of cake.",
@@ -79,7 +79,7 @@ const testimonials = [
   },
   {
     name: "Navya Puttu",
-    role: "Student",
+    role: "Learners",
     photo: "https://i.ibb.co/vXJD9g4/puttu-navya-Testimonial.jpg",
     testimonial:
       "I got into a product based company only by watching and following your path, Sir!",
@@ -149,7 +149,7 @@ const testimonials = [
   },
   {
     name: "Kapil Rai",
-    role: "Student",
+    role: "Learners",
     photo: "/profile.svg",
     testimonial:
       "You are super hero for Me Sir You are Great Sir... U made Difficult topic Concept easier",
@@ -166,7 +166,7 @@ const testimonials = [
     role: "Full Stack Developer",
     photo: "/profile.svg",
     testimonial:
-      "I was a Mechanical Engineering graduated in 2021. Started learning java on telusko, being non IT student telusko gave me strong foundation of java programming. Now I am Fullstack developer in a product based company",
+      "I was a Mechanical Engineering graduated in 2021. Started learning java on telusko, being non IT Learners telusko gave me strong foundation of java programming. Now I am Fullstack developer in a product based company",
   },
   {
     name: "Satya Prakash",
