@@ -64,13 +64,7 @@ function Video() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
             />
-          ) : (
-            <img
-              src="https://img.youtube.com/vi/7xIpeyBc-jY/maxresdefault.jpg"
-              alt="Video thumbnail"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          )}
+          ) : ""}
         </div>
       </motion.div>
     </div>

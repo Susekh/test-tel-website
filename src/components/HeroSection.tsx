@@ -6,10 +6,10 @@ import CircularBadge from "./circularBadge";
 
 function MiniBarChart() {
   return (
-    <div className="flex font-bold items-end gap-[3px] bg-gray-200 py-1.5 px-1 h-12 mt-auto pt-2"
+    <div className="flex font-bold items-end gap-[3px] bg-rose-100 py-1.5 px-1 h-12 mt-auto pt-2"
       style={{ fontFamily: "'Bebas Neue', sans-serif" }} 
     >
-      <p className="text-gray-700 sm:text-md text-center w-full font-Playfair md:text-xl lg:text-2xl xl:text-4xl">
+      <p className="text-rose-700 sm:text-md text-center w-full font-Playfair md:text-xl lg:text-2xl xl:text-4xl">
         "In the age of AI, average isn’t safe-it’s obsolete"
       </p>
     </div>
@@ -175,7 +175,7 @@ function HeroSection() {
   return (
     <>
       <section
-        className="w-full z-40 px-5 sm:px-10 md:px-24 lg:px-40 pt-8 pb-4 xl:h-screen relative"
+        className="w-full z-40 px-5 sm:px-10 md:px-24 lg:px-40 pt-8 pb-4 relative"
         style={{ fontFamily: "'DM Sans', sans-serif", background: "#fff" }}
       >
         <div className="max-w-[1200px] mx-auto flex items-start justify-between gap-8">
